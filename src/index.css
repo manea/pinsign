@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="slate"] {
+  --bg-canvas: #F7F8FA;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #EFF2F6;
+  --bg-soft: rgba(225, 29, 72, 0.08);
+  --border-subtle: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --accent-coral: #E11D48;
+  --accent-coral-hover: #BE123C;
+  --accent-coral-fg: #FFFFFF;
+  --accent-cobalt: #2563EB;
+  --accent-cobalt-soft: rgba(37, 99, 235, 0.10);
+  --accent-emerald: #059669;
+  --accent-emerald-soft: rgba(5, 150, 105, 0.11);
+  --accent-amber: #B45309;
+  --accent-amber-soft: rgba(180, 83, 9, 0.11);
+  --shadow-card: 0 10px 28px -12px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="midnight"] {
+  --bg-canvas: #090D16;
+  --bg-surface: #111827;
+  --bg-elevated: #1E293B;
+  --bg-soft: rgba(244, 63, 94, 0.14);
+  --border-subtle: #1F2937;
+  --border-strong: #334155;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --accent-coral: #F43F5E;
+  --accent-coral-hover: #E11D48;
+  --accent-coral-fg: #FFFFFF;
+  --accent-cobalt: #3B82F6;
+  --accent-cobalt-soft: rgba(59, 130, 246, 0.15);
+  --accent-emerald: #10B981;
+  --accent-emerald-soft: rgba(16, 185, 129, 0.15);
+  --accent-amber: #F59E0B;
+  --accent-amber-soft: rgba(245, 158, 11, 0.15);
+  --shadow-card: 0 14px 36px -14px rgba(0, 0, 0, 0.65);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pin-display {
+  font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+
+.num-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.pin-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.pin-input {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  border-radius: 0.65rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.pin-input:focus {
+  outline: none;
+  border-color: var(--accent-coral);
+  box-shadow: 0 0 0 3px var(--bg-soft);
+}
+
+.pin-input:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  background-color: var(--bg-elevated);
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .pin-card {
+    box-shadow: none !important;
+    border-color: #CBD5E1 !important;
+  }
+}
